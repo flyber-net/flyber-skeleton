@@ -19,7 +19,7 @@ const server =
   http.create-server router
 
 GLOBAL.import = (name)->
-  require name
+    require "./server-#{name}.js"
   
 router.use express.static(path.resolve(__dirname, \../client))
 
