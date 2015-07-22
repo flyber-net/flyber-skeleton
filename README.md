@@ -30,10 +30,10 @@ sudo apt-get install mongodb
 sudo service mongodb restart
 
 # For Mongo > 2.4.x
-mongo --eval "db.createCollection('gotogether'); use gotogether; db.addUser({user: 'gotogether', pwd: '3453fefsfdsfsfsfsFdsfsdf44', roles: ['dbAdmin']});"
+mongo --eval "db.createCollection('testcoll'); use gotogether; db.addUser({user: 'test', pwd: '3453fefsfdsfsfsfsFdsfsdf44', roles: ['dbAdmin']});"
 
 # For Mongo 3.x
-mongo --eval "db.createCollection('gotogether'); db.createUser({user: 'gotogether', pwd: '3453fefsfdsfsfsfsFdsfsdf44', roles: ['dbAdmin']});"
+mongo --eval "db.createCollection('testcoll'); db.createUser({user: 'test', pwd: '3453fefsfdsfsfsfsFdsfsdf44', roles: ['dbAdmin']});"
 ```
 
 
