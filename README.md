@@ -18,7 +18,7 @@ sh run
 #sh run debug
 ```
 
-Open in browser [http://localhost:3000]()
+Open in browser [http://localhost:80]()
 
 
 ### DB
