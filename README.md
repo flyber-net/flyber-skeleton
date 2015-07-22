@@ -11,8 +11,8 @@ On Ubuntu:
 
 ```sh
 sudo apt-get install nodejs git
-git clone git@bitbucket.org:astehno/gotogether.git
-cd gotogether
+git clone git@github.com/askucher/xonom-skeleton
+cd xonom-skeleton
 sh install
 sh run
 #sh run debug
