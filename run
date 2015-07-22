@@ -1,0 +1,16 @@
+npm install
+npm install grunt-xonom
+npm update grunt-xonom
+bower install
+killall -9 grunt
+killall -9 node
+killall -9 npm
+lsc -c gruntfile
+mkdir .compiled
+lsc -c app-structure-make
+node app-structure-make
+rm app-structure-make.js
+DEL app-structure-make.js
+grunt $1
+rm gruntfile.js
+DEL gruntfile.js

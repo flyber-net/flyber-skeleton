@@ -1,0 +1,17 @@
+#!/bin/sh
+echo "generate $1"
+cat <<EOF > "$1.controller.server.ls"
+module.exports = (app)->
+EOF
+cat <<EOF >  "$1.controller.client.ls"
+app.controller do 
+  * \\$1
+  * (\$scope)->
+EOF
+cat <<EOF >  "$1.jade"
+.$1
+EOF
+cat <<EOF > "$1.sass"
+.$1
+EOF
+ls -la
