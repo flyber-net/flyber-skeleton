@@ -36,7 +36,6 @@
     "mongojs": ">0.1",
     "prelude-ls": ">0.1",
     "recursive-readdir": ">0.1",
-    "root-require": ">0.1",
     "time-grunt": "latest"
   },
   "devDependencies": {

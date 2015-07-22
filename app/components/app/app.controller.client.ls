@@ -2,4 +2,6 @@ angular
   .module \app
   .controller do
       * \app
-      * ($scope)->
+      * ($scope, xonom)->
+          xonom.app.test (err, data)->
+            $scope.from-server = data
