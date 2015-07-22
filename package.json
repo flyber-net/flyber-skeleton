@@ -30,6 +30,7 @@
     "grunt-newer": "^1.1.1",
     "grunt-ng-annotate": "^1.0.1",
     "grunt-ng-constant": ">0.1",
+    "grunt-open": "^0.2.3",
     "grunt-shell": ">0.1",
     "grunt-ts": ">0.1",
     "grunt-yui-compressor": "^0.4.0",

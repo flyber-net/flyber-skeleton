@@ -15,7 +15,7 @@ module.exports = (grunt)->
       | Object.keys(x).0.index-of('module') > -1 => -1
       | _ => 0
   const separate = (arr, return-mods)->
-       live.filter(-> (Object.keys(it).0.index-of(\module) >  -1) is return-mods)
+       arr.filter(-> (Object.keys(it).0.index-of(\module) >  -1) is return-mods)
   const live = 
       make-pair(\.ls,\.js)
   const live-modules = 
@@ -24,14 +24,24 @@ module.exports = (grunt)->
       separate live, no
   const coffee = 
       make-pair(\.coffee,\.js)
+  const ts = 
+      make-pair(\.ts,\.js)
+  
   const coffee-modules = 
       separate coffee, yes
   const coffee-other =
       separate coffee, no
   
+  const ts-modules = 
+      separate ts, yes
+  const ts-other =
+      separate ts, no
+  
+  
   files = 
     live: live-modules ++ live-other
-    coffee: coffee-modules ++  coffee-other
+    coffee: coffee-modules ++ coffee-other
+    ts: ts-modules ++  ts-other
     jade: make-pair \.jade, \.html
     sass: make-pair \.sass, \.css
      
@@ -72,15 +82,19 @@ module.exports = (grunt)->
           bootstrap: (module, script)->
             "angular.module('app').run(['$templateCache',function($templateCache) { #{script} }])"
     ts:
-      default :
-        src:  
-          * "app/**/*.ts"
-          ...
+       options:
+        bare: yes
+       src: files.ts
     livescript:
        options:
         bare: yes
        src:
         files: files.live
+    coffee:
+       options:
+        bare: yes
+       src:
+        files: files.coffee
     concat:
       basic:
         src: p.union do
@@ -144,10 +158,14 @@ module.exports = (grunt)->
            ...
         options:
           spawn: no
-          livereload: yes  
+          livereload: 8080  
     clean:
       build:
         src: [\client/js/app_templates.js]
+    open:
+      dev:
+        path: 'http://127.0.0.1:80'
+        app: 'google-chrome'
     xonom:
       options:
         input:
@@ -174,17 +192,15 @@ module.exports = (grunt)->
          * \default
          * \dist
          * \debug
-         * \dev
     * load: \contrib-coffee
       register: \coffee
-      configs: []
+      configs: [\default]
     * load: \contrib-jade
       register: \jade
       configs:
         * \default
         * \dist
         * \debug
-        * \dev
     * load: \ng-constant
       register: \ngconstant
       configs:
@@ -196,41 +212,35 @@ module.exports = (grunt)->
         * \default
         * \dist
         * \debug
-        * \dev
     * load: \contrib-sass
       register: \sass:no_options
       configs: 
         * \default
         * \dist
         * \debug
-        * \dev
     * load: \contrib-copy
       register: \copy
       configs: 
         * \default
         * \debug
-        * \dev
         ...
     * load: \xonom
       register: \xonom
       configs:
         * \default
         * \debug
-        * \dev
         ...
     * load: \ng-annotate
       register: \ngAnnotate
       configs:
         * \default
         * \debug
-        * \dev
         ...
     * load: \contrib-concat
       register: \concat
       configs:
         * \default
         * \debug
-        * \dev
         ...
     * load: \contrib-uglify
       register: \uglify
@@ -240,7 +250,7 @@ module.exports = (grunt)->
       configs: []
     * load: \shell
       register: \shell:start
-      configs: [\default, \dev]
+      configs: [\default]
     * load: \shell
       register: \shell:node
       configs: [\debug]
@@ -252,21 +262,25 @@ module.exports = (grunt)->
       configs:
          * \default
          * \debug
-         * \dev
          * ...
+    * load: \open
+      register: \open
+      configs: 
+        []
+        ...
     * load: \contrib-watch
       register: \watch
       configs:
-         * \dev
+         * \default
          ...
-  for task in npm-tasks 
+  for task in npm-tasks
     grunt.load-npm-tasks "grunt-#{task.load}"
   const load = (name)->
     grunt.register-task do
       * name
       * npm-tasks |> p.filter (.configs.index-of(name) > -1) |> p.map (.register)
+  
   grunt.load-npm-tasks('grunt-newer')
+  
   load \default
   load \debug
-  load \dev
-  #load \dist
