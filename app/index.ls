@@ -1,4 +1,4 @@
-document.write('<script src="//' + (location.hostname || \localhost) + ':8080/livereload.js?snipver=1"></script>')
+document.write('<script src="//' + (location.hostname || \localhost) + ':35729/livereload.js?snipver=1"></script>')
 
 angular.module do
     * \app

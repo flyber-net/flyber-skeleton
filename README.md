@@ -1,21 +1,27 @@
 # Xonom-skeleton!
 
-
-## Dependencies
-
-
-* Ruby (required by Sass) `sudo apt-get install ruby-full=1.9.3` (this will install old stable Ruby 1.9.3). 
-* Sass `sudo su -c "gem install sass"`
-
-
-
 ## Installation of environment
-
 
 
 On Ubuntu:
 
-### DB: (not really need to install mongodb. application works with remote sandbox)
+
+
+### APP:
+
+```sh
+sudo apt-get install nodejs git
+git clone git@bitbucket.org:astehno/gotogether.git
+cd gotogether
+sh install
+sh run
+#sh run debug
+```
+
+Open in browser [http://localhost:3000]()
+
+
+### DB
 
 ```sh
 sudo apt-get install mongodb
@@ -31,18 +37,14 @@ mongo --eval "db.createCollection('gotogether'); db.createUser({user: 'gotogethe
 ```
 
 
-### APP:
 
-```sh
-sudo apt-get install nodejs git
-sudo npm install -g LiveScript forever grunt-cli
-git clone git@bitbucket.org:astehno/gotogether.git
-cd gotogether
-sh run
-#sh run debug
-```
+## Dependencies
 
-Open in browser [http://localhost:3000]()
+
+* Ruby (required by Sass) `sudo apt-get install ruby-full=1.9.3` (this will install old stable Ruby 1.9.3). 
+* Sass `sudo su -c "gem install sass"`
+
+
 
 
 ## How to develop

@@ -158,7 +158,7 @@ module.exports = (grunt)->
            ...
         options:
           spawn: no
-          livereload: 8080  
+          livereload: yes  
     clean:
       build:
         src: [\client/js/app_templates.js]

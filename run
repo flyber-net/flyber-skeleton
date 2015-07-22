@@ -1,7 +1,3 @@
-npm install
-npm install grunt-xonom
-npm update grunt-xonom
-bower install
 killall -9 grunt
 killall -9 node
 killall -9 npm
