@@ -88,15 +88,17 @@ app/
 ### user.controller.server.js
 
 ```Javascript 
-var db = require('./server-db.js')
+
 module.exports = {
    all : function(callback) {
+         var db = import('db')
          // `user` collection is declared in config.json
          db.user.find({}, { name: 1, _id: 1, connections: 1 }, function( err, users)  {
               callback(users);
          });
    },
    one: function(id, callback) {
+        var db = import('db')
         db.user.findOne({ _id: id }, function( err, user ) {
               callback(user);
         });
@@ -154,11 +156,7 @@ app.controller("user", function($scope, xonom) {
         color: #CCC
 ```
 
-Then run
-```sh
-sh run 
-#sh run debug 
-```
+Then grunt should reload everything automatically
 
 
 All your files will be concatenated into one js and css file and ready for usage.
