@@ -1,6 +1,14 @@
 # Xonom-skeleton!
 
+Application skeleton. Included angularjs + expressjs + angular.material + grunt + grunt-xonom
+
+Just install 
+And start to develop without additional required steps
+
+
+
 ## Installation of environment
+
 
 
 On Ubuntu:
