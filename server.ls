@@ -18,9 +18,7 @@ const router =
 const server = 
   http.create-server router
 
-GLOBAL.import = (name)->
-    require "./server-#{name}.js"
-  
+
 router.use express.static(path.resolve(__dirname, \../client))
 
 router.use(body-parser.json!)
@@ -28,11 +26,25 @@ router.use(body-parser.json!)
 router.get new RegExp(/\/app\.js\?_\=[0-9]+/i), (req, resp)->
   resp.send ""
 
-require(\./xonom.route.js) router
 
 const recursive =
     require \recursive-readdir
 
+do
+  const xonom = 
+    require(\xonom)
+  xonom.object \$server, server
+  xonom.object \$router, router
+  xonom.object \$config, require( \./../config.json )
+  recursive \./app, [], (err, files) ->
+    const is-xonom = (it)->
+      | it.index-of( \service.server.js ) > -1 => yes
+      | _ => no
+    const load = (path)->
+      xonom.require(__dirname + \/ +  path)
+    files.filter(is-xonom).for-each load
+  console.log (__dirname + \/xonom.route.js)
+  xonom.require(__dirname + \/xonom.route.js)
 
 
 do

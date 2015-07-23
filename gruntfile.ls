@@ -170,7 +170,7 @@ module.exports = (grunt)->
       options:
         input:
           controllers: files.live |> p.map key
-                                  |> p.filter (.index-of(\xonom.server.js) > -1)
+                                  |> p.filter (.index-of(\api.server.js) > -1)
         output:
            angular-service: \.compiled/xonom.service.js
            express-route: \.compiled/xonom.route.js

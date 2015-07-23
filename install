@@ -1,5 +1,3 @@
 sudo npm install -g LiveScript forever grunt-cli
 npm install
-npm install grunt-xonom
-npm update grunt-xonom
 bower install

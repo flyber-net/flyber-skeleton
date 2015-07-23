@@ -7,10 +7,13 @@
   "author": "Andrey Stehno <a.stegno@gmail.com>",
   "dependencies": {
     "asyncawait": ">0.1",
+    "xonom": "latest",
+    "grunt-xonom": "latest",
     "body-parser": ">0.1",
     "braintree": ">0.1",
     "express": "~3.2.4",
     "grunt": ">0.1",
+    "socket.io": ">0.1",
     "grunt-angular-templates": ">0.1",
     "grunt-aws-s3": ">0.1",
     "grunt-coffee": "0.0.6",

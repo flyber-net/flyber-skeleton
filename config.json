@@ -1,5 +1,5 @@
 {
    "db": { 
-        "connectionString": "YOUR CONNECTION STRING"
+        "connectionString": "mongodb://debuts:debutsdebuts@ds061651.mongolab.com:61651/debuts"
    }
 }
