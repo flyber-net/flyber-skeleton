@@ -25,12 +25,6 @@ require(\xonom)
  .run ($xonom)->
     #load generated rautes
     $xonom.require(__dirname + \/xonom.route.js)
- .run ->
-    #load server controllers
-    require(\recursive-readdir) \./app, [], (err, files) ->
-     const load = (path)->
-       require(__dirname + \/ +  path)
-     files.filter(-> it.index-of( \controller.server.js ) > -1).for-each load
  .run ($server)->
     #start server
     $server.listen do
