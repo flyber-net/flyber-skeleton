@@ -22,9 +22,7 @@ require(\xonom)
       files
         .filter (it)-> it.index-of( \service.server.js ) > -1
         .for-each (it)-> $xonom.require(__dirname + \/ +  it)
- .run ($xonom)->
-    #load generated rautes
-    $xonom.require(__dirname + \/xonom.route.js)
+ .run __dirname + \/xonom.route.js
  .run ($server)->
     #start server
     $server.listen do
