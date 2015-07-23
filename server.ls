@@ -4,18 +4,10 @@ require(\xonom)
     #init router
     const express = require(\express)
     const router = express!
-    const path = 
-       require \path
-    const body-parser = 
-       require \body-parser
     $xonom.object \$router, router
-    router.use express.static(path.resolve(__dirname, \../client))
-    router.use body-parser.json!
-    const http = 
-       require \http
-    const server = 
-       http.create-server(router)
-    $xonom.object \$server, server
+    router.use express.static(require(\path).resolve(__dirname, \../client))
+    router.use require(\body-parser).json!
+    $xonom.object \$server, require(\http).create-server(router)
  .run "#__dirname/app/**/*.service.server.js"
  .run "#__dirname/app/**/*.route.server.js"
  .run "#__dirname/xonom.route.js"
