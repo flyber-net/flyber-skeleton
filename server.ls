@@ -2,8 +2,8 @@ require(\xonom)
  .object \$config, require( \./../config.json )
  .run ($xonom)->
     #init router
-    const express = require \express
-    const router = express!
+    express = require \express
+    router = express!
     $xonom.object \$router, router
     router.use express.static(require(\path).resolve(__dirname, \../client))
     router.use require(\body-parser).json!
@@ -17,5 +17,5 @@ require(\xonom)
       * process.env.PORT or $config.server.port
       * process.env.IP or $config.server.ip
       * ->
-          const addr = $server.address!
+          addr = $server.address!
           console.log 'Server listening at', addr.address + \: + addr.port
