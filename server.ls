@@ -1,4 +1,4 @@
-require(\xonom)
+require \xonom
  .object \$config, require( \./../config.json )
  .run ($xonom)->
     #init router
