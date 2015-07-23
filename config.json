@@ -1,5 +1,9 @@
 {
    "db": { 
         "connectionString": "mongodb://debuts:debutsdebuts@ds061651.mongolab.com:61651/debuts"
+   },
+   "server": {
+      "port": 80,
+      "ip": "0.0.0.0"
    }
 }
