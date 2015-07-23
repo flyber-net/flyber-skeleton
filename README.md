@@ -1,6 +1,6 @@
 # Xonom-skeleton!
 
-Application skeleton. Included angularjs + expressjs + angular.material + grunt + grunt-xonom
+Application skeleton. Included angularjs + expressjs + angular.material + grunt + xonom + grunt-xonom
 
 Just install 
 And start to develop without additional required steps
@@ -60,7 +60,7 @@ mongo --eval "db.createCollection('testcoll'); db.createUser({user: 'test', pwd:
 All application files are located inside `app/components` folder.
 Each component is folder which contains files:
 
-* file.controller.server.js - server side controller
+* file.api.server.js - server side controller
 * file.controller.client.js - client side angularjs controller
 * file.jade - html template
 * file.sass - css stylesheet
@@ -68,8 +68,8 @@ Each component is folder which contains files:
 
 and there could be compile-time files which generate into runtime .js files:
 
-* file.controller.server.ls
-* file.controller.server.ts
+* file.api.server.ls
+* file.api.server.ts
 
 
 Each component should encapsulate everything inside.
@@ -87,27 +87,49 @@ Good practice is to provide a `README.md` file on how to work with concrete comp
 app/
  components/
   user/
+   db.service.server.js
    user.controller.client.js
-   user.controller.server.js
+   user.api.server.js
    user.jade
    user.sass
 ```
+
+### db.service.server.js
+
+```Javascript 
+
+module.exports = function($xonom) {
+   $xonom.service('$db', function() {
+   
+      return {
+      
+         find : function() {
+         
+           //
+         
+         }
+      
+      }
+   
+   })
+};
+```
+
 
 ### user.controller.server.js
 
 ```Javascript 
 
-module.exports = {
+module.exports = function($db) {
    all : function(callback) {
-         var db = import('db')
          // `user` collection is declared in config.json
-         db.user.find({}, { name: 1, _id: 1, connections: 1 }, function( err, users)  {
+         $db.user.find({}, { name: 1, _id: 1, connections: 1 }, function( err, users)  {
               callback(users);
          });
    },
    one: function(id, callback) {
         var db = import('db')
-        db.user.findOne({ _id: id }, function( err, user ) {
+        $db.user.findOne({ _id: id }, function( err, user ) {
               callback(user);
         });
    }
@@ -118,14 +140,14 @@ module.exports = {
 
 ```Javascript 
 
-app.controller("user", function($scope, xonom) {
+app.controller("user", function($scope, $xonom) {
   //`user` extracted from filename
-  xonom.user.all(function(err, users)) {
+  $xonom.user.all(function(err, users)) {
     $scope.users = users;
   };
   
   $scope.getDetails = function(id) {
-     xonom.user.one(id, function(err, details) { 
+     $xonom.user.one(id, function(err, details) { 
         $scope.details = details;
      };
   };
