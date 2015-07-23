@@ -1,5 +1,5 @@
 require \xonom
- .object \$config, require( \./../config.json )
+ .object \$config, require(\./../config.json)
  .run ($xonom)->
     #init router
     express = require \express
@@ -18,4 +18,4 @@ require \xonom
       * process.env.IP or $config.server.ip
       * ->
           addr = $server.address!
-          console.log 'Server listening at', addr.address + \: + addr.port
+          console.log "Server listening at #{addr.address}:#{addr.port}"
