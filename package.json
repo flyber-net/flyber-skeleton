@@ -36,7 +36,7 @@
     "grunt-yui-compressor": "^0.4.0",
     "mongojs": ">0.1",
     "prelude-ls": ">0.1",
-    "recursive-readdir": ">0.1",
+    "glob": ">0.1",
     "time-grunt": "latest"
   },
   "devDependencies": {

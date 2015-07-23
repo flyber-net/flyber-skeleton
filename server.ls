@@ -16,13 +16,8 @@ require(\xonom)
     const server = 
        http.create-server(router)
     $xonom.object \$server, server
- .run ($xonom)->
-    #load all services
-    require(\recursive-readdir) \./app, [], (err, files) ->
-      files
-        .filter (it)-> it.index-of( \service.server.js ) > -1
-        .for-each (it)-> $xonom.require(__dirname + \/ +  it)
- .run __dirname + \/xonom.route.js
+ .run "#__dirname/app/**/*.service.server.js"
+ .run "#__dirname/xonom.route.js"
  .run ($server)->
     #start server
     $server.listen do
