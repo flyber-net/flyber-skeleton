@@ -17,6 +17,7 @@ require(\xonom)
        http.create-server(router)
     $xonom.object \$server, server
  .run "#__dirname/app/**/*.service.server.js"
+ .run "#__dirname/app/**/*.route.server.js"
  .run "#__dirname/xonom.route.js"
  .run ($server)->
     #start server
