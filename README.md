@@ -102,13 +102,20 @@ module.exports = function($xonom) {
    $xonom.service('$db', function() {
    
       return {
+        user : {
       
          find : function() {
          
-           //
+           //implementation
+         
+         },
+         findOne: function() {
+         
+          //implementation
          
          }
       
+      }
       }
    
    })
