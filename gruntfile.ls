@@ -16,7 +16,7 @@ module.exports = (grunt)->
       Object.keys(o).0
       
   get-compiled = (to)->
-    (mapping.filter(-> it.to is to)).0.from.map( (from)->  make-pair(from, to).map(key) ).reduce( (a,b)-> a.concat(b))
+    (mapping.filter(-> it.to is to)).0.from.map( (from)->  make-pair(from, to).map(key) ).reduce( (a,b)-> a.concat(b)).map(-> __dirname + \/ +  it )
   
   
   
@@ -55,6 +55,7 @@ module.exports = (grunt)->
     jade: make-pair \.jade, \.html
     sass: make-pair \.sass, \.css
      
+  console.log("html",get-compiled('.html').filter(-> it.index-of(\app/index) is -1)  )
   path = do
     js = -> "client/js/#it"
     app: js \app.js
@@ -81,7 +82,7 @@ module.exports = (grunt)->
          files: get-compiled('.js').filter(-> it.index-of(\client.js) > -1).map(-> "#it": [it])
     ngtemplates:
       app:
-        src: get-compiled('.html').filter(-> it.index-of(\app/index) is -1)
+        src: "app/components/**/*.html"
         dest: path.templates
         options:
           url: (url) ->
@@ -179,8 +180,8 @@ module.exports = (grunt)->
            * \newer:livescript
            * \newer:coffee
            * \xonom
-           * \ngtemplates
            * \copy
+           * \ngtemplates
            * \concat:basic
            * \concat:extra
            * \shell:start
