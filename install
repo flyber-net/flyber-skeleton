@@ -1,3 +1,4 @@
 sudo npm install -g LiveScript forever grunt-cli
+npm install grunt-bower-concat --save
 npm install
 bower install
