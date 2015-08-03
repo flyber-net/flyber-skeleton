@@ -1,8 +1,7 @@
 killall -9 grunt
 killall -9 node
 killall -9 npm
-npm update xonom
-npm update grunt-xonom
+xm update
 lsc -c gruntfile
 rm -rf .compiled
 mkdir .compiled

@@ -13,6 +13,9 @@ const only-important-types = (path)->
   | path.match(\ls$) => yes
   | path.match(\coffee$) => yes
   | path.match(\ts) => yes
+  | path.match(\css) => yes
+  | path.match(\js) => yes
+  | path.match(\html) => yes
   | _ => no
   
   

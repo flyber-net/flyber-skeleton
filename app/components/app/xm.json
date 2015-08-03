@@ -1,0 +1,12 @@
+{
+    "node_modules": {},
+    "node_modules_dev": {},
+    "bower_components": {
+        "jquery": "~2.1.4",
+        "angular": "^1.4.x",
+        "angular-ui-router": "0.2.15",
+        "angular-animate": "^1.4.x",
+        "angular-aria": "^1.4.x"
+    },
+    "bower_components_dev": {}
+}

@@ -4,15 +4,11 @@ angular.module do
     * \app
     * * \ui.router
       * \xonom
-      * \ngMaterial
       ...
 
 angular
   .module \app
-  .config ($location-provider, $md-theming-provider)->
-    #$location-provider.html5Mode(yes).hashPrefix('!')
-    $md-theming-provider
-      .theme \default
-      .primary-palette \teal
+  .config ($location-provider)->
+    
 
     

@@ -1,40 +1,36 @@
 module.exports = (grunt)->
-  p = 
-    require \prelude-ls
   files = 
     require \./.compiled/app-structure.json
   make-pair = (mask-from, mask-to) ->
     make-pair = (source)->
       ".compiled/#{source.replace mask-from, mask-to}" : source
-    files |> p.filter(-> it.index-of(mask-from) > -1)
-          |> p.map make-pair
+    files.filter(-> it.index-of(mask-from) > -1).map make-pair
   key = (o)->
       Object.keys(o).0
   require(\time-grunt) grunt
-  const load-module-first = (x)->
+  load-module-first = (x)->
       | Object.keys(x).0.index-of('module') > -1 => -1
       | _ => 0
-  const separate = (arr, return-mods)->
+  separate = (arr, return-mods)->
        arr.filter(-> (Object.keys(it).0.index-of(\module) >  -1) is return-mods)
-  const live = 
+  live = 
       make-pair(\.ls,\.js)
-  const live-modules = 
+  live-modules = 
       separate live, yes
-  const live-other =
+  live-other =
       separate live, no
-  const coffee = 
+  coffee = 
       make-pair(\.coffee,\.js)
-  const ts = 
+  ts = 
       make-pair(\.ts,\.js)
-  
-  const coffee-modules = 
+  coffee-modules = 
       separate coffee, yes
-  const coffee-other =
+  coffee-other =
       separate coffee, no
   
-  const ts-modules = 
+  ts-modules = 
       separate ts, yes
-  const ts-other =
+  ts-other =
       separate ts, no
   
   
@@ -68,12 +64,10 @@ module.exports = (grunt)->
       options:
          single-quotes: yes
       app1:
-         files: files.live |> p.map key
-                           |> p.filter (.index-of(\client.js) > -1)
-                           |> p.map (-> "#it": [it])
+         files: files.live.map(key).filter(-> it.index-of(\client.js) > -1).map(-> "#it": [it])
     ngtemplates:
       app:
-        src: files.jade |> p.map key |> p.filter (.index-of(\app/index) is -1)
+        src: files.jade.map(key).filter(-> it.index-of(\app/index) is -1)
         dest: path.templates
         options:
           url: (url) ->
@@ -95,19 +89,31 @@ module.exports = (grunt)->
         bare: yes
        src:
         files: files.coffee
+    bower:
+      install: {}
+    bower_concat:
+      all:
+        dest: \lib/_bower.js
+        cssDest: \lib/_bower.css
+        dependencies: {}
+        bowerOptions:
+          relative: false
     concat:
       basic:
-        src: p.union do
-              * * \bower_components/angular/angular.js
-                * \bower_components/angular-animate/angular-animate.js
-                * \bower_components/angular-aria/angular-aria.js
-                * \bower_components/angular-material/angular-material.js
-                * \bower_components/angular-ui-router/release/angular-ui-router.js
+        src: 
+            staf =
+                * \lib/_bower.js
                 * path.app-module
                 * \.compiled/xonom.service.js
                 * path.templates
-              * files.live |> p.map key
-                           |> p.filter (.index-of(\client.js) > -1)
+            temp =
+                * \.compiled/app/components/terminal/1.term.client.js
+                ...
+            lives =
+                files.live.map(key).filter(-> it.index-of(\client.js) > -1)
+            coffees =
+                files.coffee.map(key).filter(-> it.index-of(\client.js) > -1)
+            staf ++ temp ++ lives ++ coffees
         dest: path.app
         options:
           banner: "(function( window ){ \n 'use strict';"
@@ -115,10 +121,10 @@ module.exports = (grunt)->
       extra:
         src: do
           const bower = 
-            * \bower_components/angular-material/angular-material.css
+            * \lib/_bower.css
             ...
           const app = 
-            files.sass |> p.map key
+            files.sass.map(key)
           bower ++ app
         dest: \client/css/app.css
     min :
@@ -138,16 +144,20 @@ module.exports = (grunt)->
             flatten: no
             filter: \isFile
           ...
-    
+    removelogging:
+      dist:
+        src: "js/application.js"
+        dest: "js/application-clean.js"
     watch:
       scripts:
         files: 
-          * \app/components/**/*.*
+          * \app/**/*.*
           ...
         tasks: 
            * \newer:sass
            * \newer:jade
            * \newer:livescript
+           * \newer:coffee
            * \xonom
            * \ngtemplates
            * \copy
@@ -158,7 +168,7 @@ module.exports = (grunt)->
            ...
         options:
           spawn: no
-          livereload: yes  
+          livereload: no
     clean:
       build:
         src: [\client/js/app_templates.js]
@@ -169,8 +179,7 @@ module.exports = (grunt)->
     xonom:
       options:
         input:
-          controllers: files.live |> p.map key
-                                  |> p.filter (.index-of(\api.server.js) > -1)
+          controllers: files.live.map(key).filter (.index-of(\api.server.js) > -1)
         output:
            angular-service: \.compiled/xonom.service.js
            express-route: \.compiled/xonom.route.js
@@ -183,6 +192,12 @@ module.exports = (grunt)->
       options:
         cache: \.cache
   const npm-tasks =
+    * load: \bower-task
+      register: \bower
+      configs: [\default]
+    * load: \bower-concat
+      register: \bower_concat
+      configs: [\default]
     * load: \ts
       register: \ts
       configs: []
@@ -278,7 +293,7 @@ module.exports = (grunt)->
   const load = (name)->
     grunt.register-task do
       * name
-      * npm-tasks |> p.filter (.configs.index-of(name) > -1) |> p.map (.register)
+      * npm-tasks.filter(-> it.configs.index-of(name) > -1).map(-> it.register)
   
   grunt.load-npm-tasks('grunt-newer')
   
