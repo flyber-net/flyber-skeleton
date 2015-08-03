@@ -3,8 +3,24 @@ module.exports = (grunt)->
       ".compiled/#{file.dest}": file.src.0
   make-pair = (from, to)->
     grunt.file.expand-mapping(["app/components/**/*#from", "./*#from", "app/*#from"], "", {ext: to, extDot: 'last'  }).map(convert-mapping)
+  
+  mapping = 
+    * to: \.js
+      from: [\.ls, \.coffee, \.ts, \.js]
+    * to: \.css
+      from: [\.css, \sass]
+    * to: \.html
+      from: [\.html, \.jade]
+  
   key = (o)->
       Object.keys(o).0
+      
+  get-compiled = (to)->
+    (mapping.filter(-> it.to is to)).0.from.map( (from)->  make-pair(from, to).map(key) ).reduce( (a,b)-> a.concat(b))
+  
+  
+  
+  
   require(\time-grunt) grunt
   load-module-first = (x)->
       | Object.keys(x).0.index-of('module') > -1 => -1
@@ -62,10 +78,10 @@ module.exports = (grunt)->
       options:
          single-quotes: yes
       app1:
-         files: files.live.map(key).filter(-> it.index-of(\client.js) > -1).map(-> "#it": [it])
+         files: get-compiled('.js').filter(-> it.index-of(\client.js) > -1).map(-> "#it": [it])
     ngtemplates:
       app:
-        src: files.jade.map(key).filter(-> it.index-of(\app/index) is -1)
+        src: get-compiled('.html').filter(-> it.index-of(\app/index) is -1)
         dest: path.templates
         options:
           url: (url) ->
@@ -104,14 +120,9 @@ module.exports = (grunt)->
                 * path.app-module
                 * \.compiled/xonom.service.js
                 * path.templates
-            temp =
-                * \.compiled/app/components/terminal/1.term.client.js
-                ...
-            lives =
-                files.live.map(key).filter(-> it.index-of(\client.js) > -1)
-            coffees =
-                files.coffee.map(key).filter(-> it.index-of(\client.js) > -1)
-            staf ++ temp ++ lives ++ coffees
+            js =
+                get-compiled(".js").filter(-> it.index-of(\client.js) > -1)
+            staf ++ js
         dest: path.app
         options:
           banner: "(function( window ){ \n 'use strict';"
@@ -122,7 +133,7 @@ module.exports = (grunt)->
             * \lib/_bower.css
             ...
           const app = 
-            files.sass.map(key)
+            get-compiled(".css")
           bower ++ app
         dest: \client/css/app.css
     min :
@@ -188,7 +199,7 @@ module.exports = (grunt)->
     xonom:
       options:
         input:
-          controllers: files.live.map(key).filter (.index-of(\api.server.js) > -1)
+          controllers: get-compiled(".js").filter (.index-of(\api.server.js) > -1)
         output:
            angular-service: \.compiled/xonom.service.js
            express-route: \.compiled/xonom.route.js
