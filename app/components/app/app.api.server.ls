@@ -1,3 +1,3 @@
 module.exports = ->
-    test: (callback)->
-        callback [1 to 10]
+  test: (callback)->
+    callback [1,2,3,4,5,6]

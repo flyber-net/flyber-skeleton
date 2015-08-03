@@ -5,10 +5,5 @@ xm update
 lsc -c gruntfile
 rm -rf .compiled
 mkdir .compiled
-lsc -c app-structure-make
-node app-structure-make
-rm app-structure-make.js
-DEL app-structure-make.js
 grunt $1
 rm gruntfile.js
-DEL gruntfile.js

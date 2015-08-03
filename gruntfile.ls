@@ -1,10 +1,8 @@
 module.exports = (grunt)->
-  files = 
-    require \./.compiled/app-structure.json
-  make-pair = (mask-from, mask-to) ->
-    make-pair = (source)->
-      ".compiled/#{source.replace mask-from, mask-to}" : source
-    files.filter(-> it.index-of(mask-from) > -1).map make-pair
+  convert-mapping = (file)->
+      ".compiled/#{file.dest}": file.src.0
+  make-pair = (from, to)->
+    grunt.file.expand-mapping(["app/components/**/*#from", "./*#from", "app/*#from"], "", {ext: to, extDot: 'last'  }).map(convert-mapping)
   key = (o)->
       Object.keys(o).0
   require(\time-grunt) grunt
@@ -143,7 +141,18 @@ module.exports = (grunt)->
             dest: \.compiled
             flatten: no
             filter: \isFile
-          ...
+          * expand: yes
+            cwd: ''
+            src: \app/components/**/*.css
+            dest: \.compiled
+            flatten: no
+            filter: \isFile
+          * expand: yes
+            cwd: ''
+            src: \app/components/**/*.html
+            dest: \.compiled
+            flatten: no
+            filter: \isFile
     removelogging:
       dist:
         src: "js/application.js"
