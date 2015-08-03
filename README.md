@@ -29,30 +29,14 @@ sh run
 Open in browser [http://localhost:80]()
 
 
-### DB
 
-```sh
-sudo apt-get install mongodb
-# onfailed try: try http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
-# keep default mongo settings or change /etc/mongod.conf
-sudo service mongodb restart
-
-# For Mongo > 2.4.x
-mongo --eval "db.createCollection('testcoll'); use gotogether; db.addUser({user: 'test', pwd: '3453fefsfdsfsfsfsFdsfsdf44', roles: ['dbAdmin']});"
-
-# For Mongo 3.x
-mongo --eval "db.createCollection('testcoll'); db.createUser({user: 'test', pwd: '3453fefsfdsfsfsfsFdsfsdf44', roles: ['dbAdmin']});"
-```
 
 
 
 ## Dependencies
 
-
 * Ruby (required by Sass) `sudo apt-get install ruby-full=1.9.3` (this will install old stable Ruby 1.9.3). 
 * Sass `sudo su -c "gem install sass"`
-
-
 
 
 ## How to develop
@@ -70,7 +54,18 @@ and there could be compile-time files which generate into runtime .js files:
 
 * file.api.server.ls
 * file.api.server.ts
+* file.api.server.coffee
+* file.api.server.js
 
+and there could be compile-time files which generate into runtime .html files:
+
+* file.html
+* file.jade
+
+and there could be compile-time files which generate into runtime .css files:
+
+* file.css
+* file.sass
 
 Each component should encapsulate everything inside.
 
