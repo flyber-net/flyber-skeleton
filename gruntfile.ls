@@ -55,7 +55,7 @@ module.exports = (grunt)->
     jade: make-pair \.jade, \.html
     sass: make-pair \.sass, \.css
      
-  console.log("html",get-compiled('.html').filter(-> it.index-of(\app/index) is -1)  )
+
   path = do
     js = -> "client/js/#it"
     app: js \app.js
@@ -82,7 +82,7 @@ module.exports = (grunt)->
          files: get-compiled('.js').filter(-> it.index-of(\client.js) > -1).map(-> "#it": [it])
     ngtemplates:
       app:
-        src: "app/components/**/*.html"
+        src: ".compiled/app/components/**/*.html"
         dest: path.templates
         options:
           url: (url) ->
