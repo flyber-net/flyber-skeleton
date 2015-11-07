@@ -1,9 +1,8 @@
-npm init
-npm i -g livescript 
-npm i -g xm 
-npm i -g forever 
-npm i -g grunt-cli
-
+npm i -s livescript 
+npm i -s xm 
+npm i -s forever 
+npm i -s grunt-cli
+npm i -s mongojs
 npm i -s body-parser
 npm i -s express
 npm i -s grunt
