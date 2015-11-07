@@ -1,8 +1,8 @@
 npm init
-npm i -g livescript 
-npm i -g xm 
-npm i -g forever 
-npm i -g grunt-cli
+sudo npm i -g livescript 
+sudo npm i -g xm 
+sudo npm i -g forever 
+sudo npm i -g grunt-cli
 npm i --save body-parser
 npm i --save express
 npm i --save xonom
@@ -36,4 +36,5 @@ npm i --save time-grunt
 
 
 bower install -s
+
 
