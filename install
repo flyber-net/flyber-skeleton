@@ -1,3 +1,37 @@
-sudo npm install -g LiveScript forever grunt-cli
-sudo npm install
+npm init
+npm i -g livescript 
+npm i -g xm 
+npm i -g forever 
+npm i -g grunt-cli
+
+npm i -s body-parser
+npm i -s express
+npm i -s grunt
+npm i -s grunt-angular-templates
+npm i -s grunt-aws-s3
+npm i -s grunt-bower-concat
+npm i -s grunt-bower-task
+npm i -s grunt-coffee
+npm i -s grunt-contrib-clean
+npm i -s grunt-contrib-coffee
+npm i -s grunt-contrib-concat
+npm i -s grunt-contrib-copy
+npm i -s grunt-contrib-jade
+npm i -s grunt-contrib-requirejs
+npm i -s grunt-contrib-uglify
+npm i -s grunt-contrib-watch
+npm i -s grunt-livescript
+npm i -s grunt-newer
+npm i -s grunt-ng-annotate
+npm i -s grunt-ng-constant
+npm i -s grunt-open
+npm i -s grunt-sass
+npm i -s grunt-shell
+npm i -s grunt-ts
+npm i -s grunt-xonom
+npm i -s grunt-yui-compressor
+npm i -s prelude-ls
+npm i -s time-grunt
+npm i -s xonom
+
 bower install -s
