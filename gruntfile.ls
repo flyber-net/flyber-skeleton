@@ -242,12 +242,6 @@ module.exports = (grunt)->
       configs:
         * \dist
         ...
-    * load: \angular-templates
-      register: \ngtemplates
-      configs: 
-        * \default
-        * \dist
-        * \debug
     * load: \contrib-sass
       register: \sass:no_options
       configs: 
@@ -260,6 +254,12 @@ module.exports = (grunt)->
         * \default
         * \debug
         ...
+    * load: \angular-templates
+      register: \ngtemplates
+      configs: 
+        * \default
+        * \dist
+        * \debug
     * load: \xonom
       register: \xonom
       configs:
