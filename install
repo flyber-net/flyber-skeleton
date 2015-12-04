@@ -26,8 +26,8 @@ npm i --save grunt-newer
 npm i --save grunt-ng-annotate
 npm i --save grunt-ng-constant
 npm i --save grunt-open
-npm i --save grunt--sass
-npm i --save grunt--shell
+npm i --save grunt-sass
+npm i --save grunt-shell
 npm i --save grunt-ts
 npm i --save grunt-xonom
 npm i --save grunt-yui-compressor
