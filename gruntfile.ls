@@ -242,7 +242,7 @@ module.exports = (grunt)->
       configs:
         * \dist
         ...
-    * load: \contrib-sass
+    * load: \sass
       register: \sass:no_options
       configs: 
         * \default
@@ -290,9 +290,6 @@ module.exports = (grunt)->
     * load: \shell
       register: \shell:node
       configs: [\debug]
-    * load: \aws-s3
-      register: \aws_s3
-      configs: [\dist]
     * load: \contrib-clean
       register: \clean
       configs:
