@@ -1,3 +1,4 @@
+echo "Please tell about your project!"
 npm init
 sudo npm i -g livescript 
 sudo npm i -g xm 
