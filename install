@@ -10,7 +10,6 @@ npm i --save xonom
 npm i --save mongojs
 npm i --save grunt
 npm i --save grunt-angular-templates
-npm i --save grunt-aws--save3
 npm i --save grunt-bower-concat
 npm i --save grunt-bower-task
 npm i --save grunt-coffee
@@ -27,8 +26,8 @@ npm i --save grunt-newer
 npm i --save grunt-ng-annotate
 npm i --save grunt-ng-constant
 npm i --save grunt-open
-npm i --save grunt--saveass
-npm i --save grunt--savehell
+npm i --save grunt--sass
+npm i --save grunt--shell
 npm i --save grunt-ts
 npm i --save grunt-xonom
 npm i --save grunt-yui-compressor
