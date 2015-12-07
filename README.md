@@ -3,7 +3,7 @@
 Application skeleton. Included angularjs + expressjs + angular.material + grunt + xonom + grunt-xonom
 
 
-Video tutorial: (Russian tutorial)[https://www.youtube.com/watch?v=wjoalo8WgJk] (Russian)
+Video tutorial: [https://www.youtube.com/watch?v=wjoalo8WgJk] (Russian tutorial)
 
 Just install 
 And start to develop without additional required steps
