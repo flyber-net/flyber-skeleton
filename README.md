@@ -32,6 +32,9 @@ Open in browser [http://localhost]()
 
 ## How to develop
 
+![The structure](http://content.screencast.com/users/a.stegno/folders/Jing/media/4c4bcd1b-cc94-4f5a-99cd-26969867cbcd/00000383.png)
+
+
 All application files are located inside `app/components` folder.
 Each component is folder which contains files:
 
