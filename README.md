@@ -30,15 +30,6 @@ Open in browser [http://localhost:80]()
 
 
 
-
-
-
-## Dependencies
-
-* Ruby (required by Sass) `sudo apt-get install ruby-full=1.9.3` (this will install old stable Ruby 1.9.3). 
-* Sass `sudo su -c "gem install sass"`
-
-
 ## How to develop
 
 All application files are located inside `app/components` folder.
