@@ -10,7 +10,7 @@ Application skeleton. Included:
 * grunt-xonom
 
 
-Video tutorial: [Russian tutorial](https://www.youtube.com/watch?v=wjoalo8WgJk)
+Video tutorial: [Russian](https://www.youtube.com/watch?v=wjoalo8WgJk), [English](https://youtu.be/tzdS_ECiwqA)
 
 ```sh
 sh install 
