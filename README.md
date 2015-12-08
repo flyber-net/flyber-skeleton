@@ -1,24 +1,24 @@
 # Xonom-skeleton for SAAS
 
-Application skeleton. Included angularjs + expressjs + angular.material + grunt + xonom + grunt-xonom
+Application skeleton. Included: 
+
+* angularjs
+* expressjs
+* angular.material
+* grunt 
+* xonom
+* grunt-xonom
 
 
 Video tutorial: [Russian tutorial](https://www.youtube.com/watch?v=wjoalo8WgJk)
 
-Just install 
-And start to develop without additional required steps
+> sh install 
+> sh run
+> Start develop your business
 
 ![Xonom](http://www.netsolutionsindia.com/img/saas-graphic.jpg)
 
 ## Installation of environment
-
-
-
-On Ubuntu:
-
-
-
-### APP:
 
 ```sh
 sudo apt-get install nodejs git
@@ -34,7 +34,6 @@ Open in browser [http://localhost]()
 
 
 ## How to develop
-
 
 
 All application files are located inside `app/components` folder.
