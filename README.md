@@ -12,10 +12,11 @@ Application skeleton. Included:
 
 Video tutorial: [Russian tutorial](https://www.youtube.com/watch?v=wjoalo8WgJk)
 
-> sh install 
-> sh run
-> Start develop your business
-
+```
+sh install 
+sh run
+#Start develop your web application
+```
 ![Xonom](http://www.netsolutionsindia.com/img/saas-graphic.jpg)
 
 ## Installation of environment
