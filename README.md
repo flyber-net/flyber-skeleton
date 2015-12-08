@@ -1,4 +1,4 @@
-# Xonom-skeleton!
+# Xonom-skeleton! for SAAS
 
 Application skeleton. Included angularjs + expressjs + angular.material + grunt + xonom + grunt-xonom
 
@@ -8,7 +8,7 @@ Video tutorial: [Russian tutorial](https://www.youtube.com/watch?v=wjoalo8WgJk)
 Just install 
 And start to develop without additional required steps
 
-![Xonom](http://content.screencast.com/users/a.stegno/folders/Jing/media/fe8168b5-3c33-4b08-97b1-04f45c6e77d2/00000382.png)
+![Xonom](http://www.netsolutionsindia.com/img/saas-graphic.jpg)
 
 ## Installation of environment
 
