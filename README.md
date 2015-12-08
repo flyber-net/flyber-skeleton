@@ -12,7 +12,7 @@ Application skeleton. Included:
 
 Video tutorial: [Russian tutorial](https://www.youtube.com/watch?v=wjoalo8WgJk)
 
-```
+```sh
 sh install 
 sh run
 #Start develop your web application
