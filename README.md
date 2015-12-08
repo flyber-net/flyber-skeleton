@@ -1,4 +1,4 @@
-# Xonom-skeleton for SAAS
+# Xonom Skeleton for SAAS
 
 Application skeleton. Included: 
 
