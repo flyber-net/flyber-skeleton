@@ -1,4 +1,4 @@
-# Xonom-skeleton! for SAAS
+# Xonom-skeleton for SAAS
 
 Application skeleton. Included angularjs + expressjs + angular.material + grunt + xonom + grunt-xonom
 
