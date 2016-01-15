@@ -1,0 +1,13 @@
+cd app/components
+if [ -d "$1" ]; then
+  echo "ERROR. Choose another name. $1 exists"
+  exit 1
+fi
+
+mkdir $1
+cd $1
+echo ".$1" > $1.jade
+echo ".$1" > $1.sass
+
+echo "angular.module('app').directive('$1', -> { restrict: \E,  template-url: '$1' })" > $1.directive.ls 
+cd ../../
