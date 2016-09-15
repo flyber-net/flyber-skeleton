@@ -17,7 +17,7 @@ sh install
 sh run
 #Start develop your web application
 ```
-![Flyber](http://www.netsolutionsindia.com/img/saas-graphic.jpg)
+![Flyber](http://res.cloudinary.com/nixar-work/image/upload/v1473975258/13268115_880281065449309_626424912755329334_o.jpg)
 
 ## Installation of environment
 
