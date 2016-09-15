@@ -6,7 +6,7 @@ sudo npm i -g forever
 sudo npm i -g grunt-cli
 npm i --save body-parser
 npm i --save express
-npm i --save xonom
+npm i --save flyber
 npm i --save mongojs
 npm i --save grunt
 npm i --save grunt-angular-templates
@@ -29,7 +29,7 @@ npm i --save grunt-open
 npm i --save grunt-sass
 npm i --save grunt-shell
 npm i --save grunt-ts
-npm i --save grunt-xonom
+npm i --save grunt-flyber
 npm i --save grunt-yui-compressor
 npm i --save prelude-ls
 npm i --save time-grunt

@@ -3,7 +3,7 @@
 angular.module do
     * \app
     * * \ui.router
-      * \xonom
+      * \flyber
       ...
 
 angular

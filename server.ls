@@ -1,16 +1,16 @@
-require \xonom
+require \flyber
  .object \$config, require(\./../config.json)
- .run ($xonom)->
+ .run ($flyber)->
     #init router
     express = require \express
     router = express!
-    $xonom.object \$router, router
+    $flyber.object \$router, router
     router.use express.static(require(\path).resolve(__dirname, \../client))
     router.use require(\body-parser).json!
-    $xonom.object \$server, require(\http).create-server(router)
+    $flyber.object \$server, require(\http).create-server(router)
  .run "#__dirname/app/**/*.service.server.js"
  .run "#__dirname/app/**/*.route.server.js"
- .run "#__dirname/xonom.route.js"
+ .run "#__dirname/flyber.route.js"
  .run ($server, $config)->
     #start server
     $server.listen do

@@ -1,4 +1,4 @@
-# Xonom Skeleton for SAAS
+# Flyber Skeleton for SAAS
 
 Application skeleton. Included: 
 
@@ -6,8 +6,8 @@ Application skeleton. Included:
 * expressjs
 * angular.material
 * grunt 
-* xonom
-* grunt-xonom
+* flyber
+* grunt-flyber
 
 
 Video tutorial: [Russian](https://www.youtube.com/watch?v=wjoalo8WgJk), [English](https://youtu.be/tzdS_ECiwqA)
@@ -17,14 +17,14 @@ sh install
 sh run
 #Start develop your web application
 ```
-![Xonom](http://www.netsolutionsindia.com/img/saas-graphic.jpg)
+![Flyber](http://www.netsolutionsindia.com/img/saas-graphic.jpg)
 
 ## Installation of environment
 
 ```sh
 sudo apt-get install nodejs git
-git clone git@github.com/askucher/xonom-skeleton
-cd xonom-skeleton
+git clone git@github.com/askucher/flyber-skeleton
+cd flyber-skeleton
 sh install
 sh run
 #sh run debug
@@ -91,8 +91,8 @@ app/
 
 ```Javascript 
 
-module.exports = function($xonom) {
-   $xonom.service('$db', function() {
+module.exports = function($flyber) {
+   $flyber.service('$db', function() {
    
       return {
         user : {
@@ -140,14 +140,14 @@ module.exports = function($db) {
 
 ```Javascript 
 
-app.controller("user", function($scope, $xonom) {
+app.controller("user", function($scope, $flyber) {
   //`user` extracted from filename
-  $xonom.user.all(function(err, users)) {
+  $flyber.user.all(function(err, users)) {
     $scope.users = users;
   };
   
   $scope.getDetails = function(id) {
-     $xonom.user.one(id, function(err, details) { 
+     $flyber.user.one(id, function(err, details) { 
         $scope.details = details;
      };
   };

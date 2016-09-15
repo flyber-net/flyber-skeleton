@@ -119,7 +119,7 @@ module.exports = (grunt)->
             staf =
                 * \lib/_bower.js
                 * path.app-module
-                * \.compiled/xonom.service.js
+                * \.compiled/flyber.service.js
                 * path.templates
             js =
                 get-compiled(".js").filter(-> it.index-of(\client.js) > -1)
@@ -179,7 +179,7 @@ module.exports = (grunt)->
            * \newer:jade
            * \newer:livescript
            * \newer:coffee
-           * \xonom
+           * \flyber
            * \copy
            * \ngtemplates
            * \concat:basic
@@ -197,13 +197,13 @@ module.exports = (grunt)->
       dev:
         path: 'http://127.0.0.1:80'
         app: 'google-chrome'
-    xonom:
+    flyber:
       options:
         input:
           controllers: get-compiled(".js").filter (.index-of(\api.server.js) > -1)
         output:
-           angular-service: \.compiled/xonom.service.js
-           express-route: \.compiled/xonom.route.js
+           angular-service: \.compiled/flyber.service.js
+           express-route: \.compiled/flyber.route.js
     shell:
         start:
           command: 'killall -9 node; cd .compiled; forever stop server.js; forever start server.js'
@@ -260,8 +260,8 @@ module.exports = (grunt)->
         * \default
         * \dist
         * \debug
-    * load: \xonom
-      register: \xonom
+    * load: \flyber
+      register: \flyber
       configs:
         * \default
         * \debug
